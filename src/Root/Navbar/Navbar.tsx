@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className={`py-3.5 shadow-sm bg-base-100 sticky top-0`}>
+    <nav className={`py-3.5 shadow-sm bg-base-100 sticky top-0 z-50`}>
       <div className="container flex justify-between mx-auto px-4 items-center">
         <div className="md:hidden text-xl mt-2">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -52,9 +52,7 @@ const Navbar: React.FC = () => {
         </ul>
         <div>
           <Link className="" to={"/login"}>
-            <Button customClass="bg-primary-color text-base-200 hover:bg-secondary-color">
-              Login
-            </Button>
+            <Button>Login</Button>
           </Link>
         </div>
       </div>
