@@ -16,7 +16,7 @@ const navLinks = [
   { path: "/", label: "Home", icon: FaHome },
   { path: "/students", label: "Students", icon: FaUserGraduate },
   { path: "/teachers", label: "Teachers", icon: FaChalkboardTeacher },
-  { path: "/about", label: "About Us", icon: FaInfoCircle },
+  { path: "/about-us", label: "About Us", icon: FaInfoCircle },
   { path: "/contact", label: "Contact", icon: FaEnvelope },
 ];
 

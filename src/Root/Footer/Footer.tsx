@@ -10,7 +10,7 @@ const socialLinks = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-700 text-base-200 pt-6 pb-2">
+    <footer className="bg-gray-700 text-gray-300 pt-6 pb-2">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between justify-center items-center pb-6">
           {/* Logo and Description */}
@@ -38,9 +38,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        <hr />
         {/* Footer Bottom */}
-        <div className=" text-center text-sm mt-2">
+        <div className=" text-center text-sm pt-2 border-t border-gray-400">
           &copy; {new Date().getFullYear()} Summit. All rights reserved.
         </div>
       </div>
