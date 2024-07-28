@@ -23,17 +23,18 @@ const StudentsPage: React.FC = () => {
       <PageHeader url="/students" label="Students">
         Student List
       </PageHeader>
-      <section className="container mx-auto px-4 py-8">
-        <ul className="flex justify-center overflow-x-auto">
+      <section className="container mx-auto py-8">
+        <ul className="flex justify-center overflow-x-auto px-4 sticky top-16 py-2 bg-base-100">
           <div className="flex-grow border-b-2 border-primary-color border-opacity-50"></div>
           {students.map((student, index) => (
             <li key={student.id} className="text-gray-600 ">
               <button
                 onClick={() => setActiveTab(index)}
                 className={`${
-                  activeTab === index &&
-                  "text-primary-color border-2 rounded-t border-b-0"
-                } md:px-4 px-2.5 md:py-2 py-1.5 border-b-2 border-primary-color border-opacity-50 font-semibold`}
+                  activeTab === index
+                    ? "text-primary-color rounded-t border-b-0 border-2"
+                    : "border-b-2"
+                } md:px-4 px-2.5 md:py-2 py-1.5  border-primary-color border-opacity-50 font-semibold`}
               >
                 {student.label}
               </button>
