@@ -17,8 +17,8 @@ interface ReviewType {
 
 const Testimonials: React.FC = () => {
   const [reviews, setReviews] = useState<ReviewType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     const loadReviews = async () => {
@@ -74,7 +74,9 @@ const Testimonials: React.FC = () => {
 
   return (
     <section className="bg-base-200 py-6">
-      <h2 className="text-3xl font-bold text-center my-5">What Says Guardian</h2>
+      <h2 className="text-3xl font-bold text-center my-5">
+        What Says Guardian
+      </h2>
       <div className="container mx-auto px-4 lg:py-16 overflow-x-hidden ">
         <div className="slider-container">
           <Slider {...settings}>

@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Button from "./../../components/shared/Button/Button";
@@ -22,7 +21,7 @@ const navLinks = [
 ];
 
 const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
     <nav className={`py-3.5 shadow-sm bg-base-100 sticky top-0 z-50`}>
@@ -61,7 +60,11 @@ const Navbar: React.FC = () => {
       {isMenuOpen && (
         <ul className="absolute md:hidden top-16 left-0 w-full bg-base-200 justify-center items-center flex h-[90vh] flex-col gap-3 p-6">
           {navLinks.map((link) => (
-            <NavLink key={link.path} to={link.path}>
+            <NavLink
+              onClick={() => setIsMenuOpen(false)}
+              key={link.path}
+              to={link.path}
+            >
               <li className="flex items-center lg:gap-2 gap-1.5 hover:text-primary-color duration-300 transition">
                 <span>
                   <link.icon />
