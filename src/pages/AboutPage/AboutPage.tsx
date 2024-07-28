@@ -14,7 +14,7 @@ const AboutPage: React.FC = () => {
         About Us
       </PageHeader>
       <section className="py-8 container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-600">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-gray-600">
           <div>
             <h2 className="text-2xl font-bold mb-4">About Summit Coaching</h2>
             <p className="mb-4">
@@ -45,14 +45,15 @@ const AboutPage: React.FC = () => {
               brighter future. Together, we can achieve greatness.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-4">
             {aboutImages.map((image, index) => (
-              <img
-                key={index}
-                className="h-60"
-                src={image}
-                alt={`About Us Image ${index + 1} `}
-              />
+              <figure key={index} className="flex justify-center">
+                <img
+                  className="w-full h-60"
+                  src={image}
+                  alt={`About Us Image ${index + 1} `}
+                />
+              </figure>
             ))}
           </div>
         </div>
