@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
-    <nav className={`py-3.5 shadow-sm bg-base-100 sticky top-0 z-50`}>
+    <nav className={`py-3.5 shadow-sm bg-base-100 sticky top-0 z-40`}>
       <div className="container flex justify-between mx-auto px-4 items-center">
         <div className="md:hidden text-xl mt-2">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>

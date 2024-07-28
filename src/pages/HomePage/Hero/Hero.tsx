@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
               Summit!
             </span>
             <br />
-            <span className="font-semibold "> Here You Feel At Home</span>
+            <span className="font-semibold "> Learn with Fun</span>
           </h2>
           <p className="text-gray-600 my-4">
             This is a dummy text replace this text with some meaning full text.

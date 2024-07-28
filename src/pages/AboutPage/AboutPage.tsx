@@ -49,7 +49,7 @@ const AboutPage: React.FC = () => {
             {aboutImages.map((image, index) => (
               <figure key={index} className="flex justify-center">
                 <img
-                  className="w-full h-60"
+                  className="w-full lg:h-60"
                   src={image}
                   alt={`About Us Image ${index + 1} `}
                 />

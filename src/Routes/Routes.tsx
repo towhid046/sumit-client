@@ -5,6 +5,7 @@ import Root from "./../Root/Root";
 import StudentsPage from "./../pages/StudentsPage/StudentsPage";
 import TeacherPage from "./../pages/TeacherPage/TeacherPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
+import ContactPage from "../pages/ContactPage/ContactPage";
 
 const routes = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const routes = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
       {
         path: "/login",
