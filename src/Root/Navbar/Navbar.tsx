@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
         <div>
           <Link to={"/"}>
             {" "}
-            <h2 className="md:text-3xl text-2xl font-bold">Sumit</h2>
+            <h2 className="md:text-3xl text-2xl font-bold">Summit</h2>
           </Link>
         </div>
         <ul className="md:flex hidden items-center lg:gap-8 gap-5">

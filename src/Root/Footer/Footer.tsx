@@ -17,11 +17,11 @@ const Footer: React.FC = () => {
           <div className="mb-6 md:mb-0">
             <Link to="/">
               <h2 className="text-2xl font-bold md:text-left text-center">
-                Sumit
+                Summit
               </h2>
             </Link>
             <p className="mt-2 text-sm text-gray-600">
-              A brief description about Sumit and the services offered.
+              A brief description about Summit and the services offered.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
         <hr />
         {/* Footer Bottom */}
         <div className=" text-center text-sm text-gray-600 mt-2">
-          &copy; {new Date().getFullYear()} Sumit. All rights reserved.
+          &copy; {new Date().getFullYear()} Summit. All rights reserved.
         </div>
       </div>
     </footer>
