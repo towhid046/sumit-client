@@ -5,8 +5,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import useAuth from "./../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { Inputs } from "../../CommonTypes/CommonTypes";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 const RegisterPage: React.FC = () => {
+  useScrollToTop()
   const { register, handleSubmit } = useForm<Inputs>();
   const { registerUser } = useAuth();
   const navigate:NavigateFunction = useNavigate()

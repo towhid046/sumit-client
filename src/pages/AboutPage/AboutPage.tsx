@@ -1,5 +1,6 @@
 import React from "react";
 import PageHeader from "./../../components/shared/PageHeader/PageHeader";
+import useScrollToTop from "../../hooks/useScrollToTop";
 const aboutImages = [
   "https://images.pexels.com/photos/261895/pexels-photo-261895.jpeg?auto=compress&cs=tinysrgb&w=600",
   "https://images.pexels.com/photos/939700/pexels-photo-939700.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -8,6 +9,7 @@ const aboutImages = [
 ];
 
 const AboutPage: React.FC = () => {
+  useScrollToTop()
   return (
     <>
       <PageHeader label="About Us" url="/about-us">

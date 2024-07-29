@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PageHeader from "./../../components/shared/PageHeader/PageHeader";
 import StudentsList from "./StudensList/StudentsList";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 interface Students {
   id: number;
@@ -16,6 +17,7 @@ const students: Students[] = [
 ];
 
 const StudentsPage: React.FC = () => {
+  useScrollToTop()
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
@@ -24,7 +26,7 @@ const StudentsPage: React.FC = () => {
         Student List
       </PageHeader>
       <section className="container mx-auto py-8">
-        <ul className="flex justify-center overflow-x-auto px-4 sticky top-16 py-2 bg-base-100">
+        <ul className="flex justify-center overflow-x-auto px-4 sticky top-16 py-6  bg-base-100">
           <div className="flex-grow border-b-2 border-primary-color border-opacity-50"></div>
           {students.map((student, index) => (
             <li key={student.id} className="text-gray-600 ">

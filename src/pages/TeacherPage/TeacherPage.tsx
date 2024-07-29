@@ -1,8 +1,10 @@
 import React from "react";
 import PageHeader from "./../../components/shared/PageHeader/PageHeader";
 import TeachersList from "./TeachersList/TeachersList";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 const TeacherPage: React.FC = () => {
+  useScrollToTop()
   return (
     <>
       <PageHeader label="Teachers" url="/teachers">

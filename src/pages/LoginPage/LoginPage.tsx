@@ -7,8 +7,10 @@ import useAuth from "../../hooks/useAuth";
 import { AuthInfoProps, Inputs } from "./../../CommonTypes/CommonTypes";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import useScrollToTop from './../../hooks/useScrollToTop';
 
 const LoginPage: React.FC = () => {
+  useScrollToTop()
   const { register, handleSubmit } = useForm<Inputs>();
   const { loginUser }: AuthInfoProps = useAuth();
   const navigate: NavigateFunction = useNavigate();
