@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavigateFunction, NavLink, useNavigate } from "react-router-dom";
 import Button from "./../../components/shared/Button/Button";
 // import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -11,6 +11,7 @@ import {
   FaInfoCircle,
   FaEnvelope,
 } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
 
 const navLinks = [
   { path: "/", label: "Home", icon: FaHome },
@@ -19,9 +20,19 @@ const navLinks = [
   { path: "/about-us", label: "About Us", icon: FaInfoCircle },
   { path: "/contact", label: "Contact", icon: FaEnvelope },
 ];
-
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { user, logOutUser } = useAuth();
+  const navigate: NavigateFunction = useNavigate();
+
+  const handleLogoutUser: () => Promise<void> = async () => {
+    try {
+      await logOutUser();
+      navigate("/");
+    } catch (err: unknown) {
+      console.error(err);
+    }
+  };
 
   return (
     <nav className={`py-3.5 shadow-sm bg-base-100 sticky top-0 z-40`}>
@@ -50,9 +61,36 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
         <div>
-          <Link className="" to={"/login"}>
-            <Button>Login</Button>
-          </Link>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-circle avatar">
+                <div className="md:w-10 w-9 rounded-full">
+                  <img
+                    alt="Tailwind CSS"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded z-[1] mt-4 w-52 p-2 shadow"
+              >
+                <li>
+                  <button className="justify-between">Profile</button>
+                </li>
+                <li>
+                  <button>Settings</button>
+                </li>
+                <li>
+                  <button onClick={handleLogoutUser}>Logout</button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link className="" to={"/login"}>
+              <Button>Login</Button>
+            </Link>
+          )}
         </div>
       </div>
 

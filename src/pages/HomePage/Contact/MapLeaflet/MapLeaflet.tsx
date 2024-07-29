@@ -11,7 +11,7 @@ const MapLeaflet = ({ height }: HeightProps) => {
   const position = [23.745, 90.375];
   const customIcon = new Icon({
     iconUrl: locationIcon,
-    iconSize: [60, 60],
+    iconSize: [47, 60],
   });
 
   return (

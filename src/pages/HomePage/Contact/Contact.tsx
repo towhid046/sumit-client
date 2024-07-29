@@ -1,7 +1,7 @@
 import { MdOutlineEmail } from "react-icons/md";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { FaSquareWhatsapp } from "react-icons/fa6";
-import { FaHome } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import Button from "../../../components/shared/Button/Button";
 import { FaExpand } from "react-icons/fa";
 
@@ -20,7 +20,7 @@ const contactsInfo = [
   { id: 2003, title: <FaSquareWhatsapp />, address: "+88 01811699726" },
   {
     id: 2004,
-    title: <FaHome />,
+    title: <FaLocationDot />,
     address: "Dhanmondi Road No-127, block-C, Dhaka, Bangladesh",
   },
 ];
@@ -98,7 +98,7 @@ const Contact = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Enter your name"
+                    placeholder="Subject"
                     className="focus:outline-none focus:border focus:border-primary-color bg-transparent py-2 px-4  w-full border rounded outline-none "
                     required
                   />

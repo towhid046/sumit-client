@@ -1,7 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import Button from "../../components/shared/Button/Button";
 import PageHeader from "./../../components/shared/PageHeader/PageHeader";
+import { useForm, SubmitHandler } from "react-hook-form";
+import useAuth from "./../../hooks/useAuth";
+import { toast } from "react-toastify";
+import { Inputs } from "../../CommonTypes/CommonTypes";
+
 const RegisterPage: React.FC = () => {
+  const { register, handleSubmit } = useForm<Inputs>();
+  const { registerUser } = useAuth();
+  const navigate:NavigateFunction = useNavigate()
+
+  const handleUserRegisterForm: SubmitHandler<Inputs> = async (data) => {
+    const { name, email, imgObject, password } = data;
+    try {
+      await registerUser(email, password);
+      navigate('/')
+    } catch (error: unknown) {
+      toast.error(error?.message);
+    }
+  };
+
   return (
     <>
       <PageHeader url="/register" label="Register">
@@ -10,14 +29,17 @@ const RegisterPage: React.FC = () => {
       <section className="container mx-auto px-4 py-8">
         <div className="max-w-md mx-auto bg-white p-8 border border-gray-200 rounded">
           <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
-          <form className="space-y-3">
+          <form
+            onSubmit={handleSubmit(handleUserRegisterForm)}
+            className="space-y-3"
+          >
             <div className="space-y-1.5">
               <label>
                 <strong>Your Name</strong>
               </label>
               <input
                 type="text"
-                name="name"
+                {...register("name")}
                 placeholder="Enter your name"
                 className="focus:outline-none focus:border focus:border-primary-color bg-transparent py-2 px-4 w-full border rounded outline-none"
                 required
@@ -29,7 +51,7 @@ const RegisterPage: React.FC = () => {
               </label>
               <input
                 type="email"
-                name="email"
+                {...register("email")}
                 placeholder="Enter your email"
                 className="focus:outline-none focus:border focus:border-primary-color bg-transparent py-2 px-4 w-full border rounded outline-none"
                 required
@@ -41,7 +63,7 @@ const RegisterPage: React.FC = () => {
               </label>
               <input
                 type="file"
-                name="photo"
+                {...register("imgObject")}
                 placeholder="Enter your Photo"
                 className="focus:outline-none focus:border focus:border-primary-color bg-transparent py-1.5 cursor-pointer px-4 w-full border rounded outline-none"
                 required
@@ -53,7 +75,7 @@ const RegisterPage: React.FC = () => {
               </label>
               <input
                 type="password"
-                name="password"
+                {...register("password")}
                 placeholder="Enter your password"
                 className="focus:outline-none focus:border focus:border-primary-color bg-transparent py-2 px-4 w-full border rounded outline-none"
                 required
