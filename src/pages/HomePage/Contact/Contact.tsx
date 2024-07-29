@@ -122,11 +122,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      {isMapShowFull && (
-        <>
-          <MapLeafletFull setIsMapShowFull={setIsMapShowFull} />
-        </>
-      )}
+      {isMapShowFull && <MapLeafletFull setIsMapShowFull={setIsMapShowFull} />}
     </>
   );
 };
