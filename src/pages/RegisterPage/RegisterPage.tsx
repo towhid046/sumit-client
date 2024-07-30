@@ -6,6 +6,9 @@ import useAuth from "./../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { Inputs } from "../../CommonTypes/CommonTypes";
 import useScrollToTop from "../../hooks/useScrollToTop";
+import axios from "axios";
+const imgbb_api_key = import.meta.env.VITE_IMGBB_API_KEY;
+const img_hosting_api = `https://api.imgbb.com/1/upload?key=${imgbb_api_key}`;
 
 const RegisterPage: React.FC = () => {
   useScrollToTop();
@@ -15,8 +18,13 @@ const RegisterPage: React.FC = () => {
 
   const handleUserRegisterForm: SubmitHandler<Inputs> = async (data) => {
     const { name, email, imgObject, password } = data;
-    const imgUrl =
-      "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=600";
+    const imgFile = { image: imgObject[0] };
+
+    const res = await axios.post(img_hosting_api, imgFile, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+
+    const imgUrl = res.data?.data?.url;
 
     try {
       await registerUser(email, password);

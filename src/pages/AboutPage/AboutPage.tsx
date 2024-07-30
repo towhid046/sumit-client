@@ -9,7 +9,7 @@ const aboutImages = [
 ];
 
 const AboutPage: React.FC = () => {
-  useScrollToTop()
+  useScrollToTop();
   return (
     <>
       <PageHeader label="About Us" url="/about-us">
@@ -51,7 +51,7 @@ const AboutPage: React.FC = () => {
             {aboutImages.map((image, index) => (
               <figure key={index} className="flex justify-center">
                 <img
-                  className="w-full lg:h-60"
+                  className="w-full lg:h-60 object-cover"
                   src={image}
                   alt={`About Us Image ${index + 1} `}
                 />

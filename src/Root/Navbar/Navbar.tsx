@@ -12,7 +12,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const navLinks = [
   { path: "/", label: "Home", icon: FaHome },
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
     try {
       await logOutUser();
       navigate("/");
-      toast.info('Logout Success!!')
+      toast.info("Logout Success!!");
     } catch (err: unknown) {
       console.error(err);
     }
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded z-[1] mt-4 w-52 p-2 shadow"
               >
-                <li className="text-base p-2">Hey, {user?.displayName}</li>
+                <li className="text-base p-2">Hi, {user?.displayName}</li>
                 <li>
                   <button>Profile</button>
                 </li>

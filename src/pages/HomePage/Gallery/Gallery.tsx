@@ -21,7 +21,7 @@ const Gallery: React.FC = () => {
               <img
                 src={image}
                 alt={`Gallery image ${index + 1}`}
-                className="w-full h-64 rounded hover:scale-125 transition duration-500 "
+                className="w-full h-64 rounded cursor-grab hover:scale-125 transition duration-500 object-cover"
               />
             </div>
           ))}
