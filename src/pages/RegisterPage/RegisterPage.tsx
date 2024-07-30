@@ -8,16 +8,21 @@ import { Inputs } from "../../CommonTypes/CommonTypes";
 import useScrollToTop from "../../hooks/useScrollToTop";
 
 const RegisterPage: React.FC = () => {
-  useScrollToTop()
+  useScrollToTop();
   const { register, handleSubmit } = useForm<Inputs>();
-  const { registerUser } = useAuth();
-  const navigate:NavigateFunction = useNavigate()
+  const { registerUser, updateUserProfile } = useAuth();
+  const navigate: NavigateFunction = useNavigate();
 
   const handleUserRegisterForm: SubmitHandler<Inputs> = async (data) => {
     const { name, email, imgObject, password } = data;
+    const imgUrl =
+      "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=600";
+
     try {
       await registerUser(email, password);
-      navigate('/')
+      await updateUserProfile(name, imgUrl);
+      toast.success("Registration Success!!");
+      navigate("/");
     } catch (error: unknown) {
       toast.error(error?.message);
     }

@@ -7,12 +7,12 @@ import useAuth from "../../hooks/useAuth";
 import { AuthInfoProps, Inputs } from "./../../CommonTypes/CommonTypes";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import useScrollToTop from './../../hooks/useScrollToTop';
+import useScrollToTop from "./../../hooks/useScrollToTop";
 
 const LoginPage: React.FC = () => {
-  useScrollToTop()
+  useScrollToTop();
   const { register, handleSubmit } = useForm<Inputs>();
-  const { loginUser }: AuthInfoProps = useAuth();
+  const { loginUser, loginWithGoogle }: AuthInfoProps = useAuth();
   const navigate: NavigateFunction = useNavigate();
 
   const handleUserLoginForm: SubmitHandler<Inputs> = async (data) => {
@@ -20,9 +20,16 @@ const LoginPage: React.FC = () => {
     try {
       await loginUser(email, password);
       navigate("/");
+      toast.success("Login Success!!");
     } catch (error: unknown) {
       toast.error(error?.message);
     }
+  };
+
+  const handleLoginWithGoogle = async () => {
+    await loginWithGoogle();
+    toast.success("Login Success!!");
+    navigate("/");
   };
 
   return (
@@ -68,7 +75,10 @@ const LoginPage: React.FC = () => {
           </form>
           <div>
             <h2 className="text-center italic pt-4 pb-2">Or</h2>
-            <Button customClass="flex justify-center gap-2 bg-base-content items-center w-full hover:bg-gray-700">
+            <Button
+              clickHandler={handleLoginWithGoogle}
+              customClass="flex justify-center gap-2  bg-green-600 bg-opacity-80 items-center w-full hover:bg-green-700 hover:bg-opacity-80 transition duration-300"
+            >
               <FaGoogle />
               Login with Google
             </Button>

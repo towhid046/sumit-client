@@ -12,6 +12,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
+import { toast } from 'react-toastify';
 
 const navLinks = [
   { path: "/", label: "Home", icon: FaHome },
@@ -24,11 +25,11 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { user, logOutUser } = useAuth();
   const navigate: NavigateFunction = useNavigate();
-
   const handleLogoutUser: () => Promise<void> = async () => {
     try {
       await logOutUser();
       navigate("/");
+      toast.info('Logout Success!!')
     } catch (err: unknown) {
       console.error(err);
     }
@@ -65,18 +66,16 @@ const Navbar: React.FC = () => {
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-circle avatar">
                 <div className="md:w-10 w-9 rounded-full">
-                  <img
-                    alt="Tailwind CSS"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  />
+                  <img alt="User Img" src={user?.photoURL} />
                 </div>
               </div>
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded z-[1] mt-4 w-52 p-2 shadow"
               >
+                <li className="text-base p-2">Hey, {user?.displayName}</li>
                 <li>
-                  <button className="justify-between">Profile</button>
+                  <button>Profile</button>
                 </li>
                 <li>
                   <button>Settings</button>
