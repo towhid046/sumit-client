@@ -75,13 +75,13 @@ const LoginPage: React.FC = () => {
           </form>
           <div>
             <h2 className="text-center italic pt-4 pb-2">Or</h2>
-            <Button
-              clickHandler={handleLoginWithGoogle}
-              customClass="flex justify-center gap-2  bg-green-600 bg-opacity-80 items-center w-full hover:bg-green-700 hover:bg-opacity-80 transition duration-300"
+            <button
+              onClick={handleLoginWithGoogle}
+              className="flex justify-center gap-2 bg-gray-800 md:py-2 px-4 py-1.5 rounded items-center w-full text-white transition duration-300"
             >
               <FaGoogle />
               Login with Google
-            </Button>
+            </button>
           </div>
           <div className="text-center mt-4">
             <button>
