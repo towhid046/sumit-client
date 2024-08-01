@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PageHeader from "./../../components/shared/PageHeader/PageHeader";
-import StudentsList from "./StudensList/StudentsList";
 import useScrollToTop from "../../hooks/useScrollToTop";
+import StudentsList from "./StudentsList/StudentsList";
 
 interface Students {
   id: number;
@@ -9,16 +9,33 @@ interface Students {
   content: React.ReactElement;
 }
 
-const students: Students[] = [
-  { id: 7, label: "Class-7 (30)", content: <StudentsList /> },
-  { id: 8, label: "Class-8 (40)", content: <StudentsList /> },
-  { id: 9, label: "Class-9 (35)", content: <StudentsList /> },
-  { id: 10, label: "Class-10 (45)", content: <StudentsList /> },
-];
-
 const StudentsPage: React.FC = () => {
-  useScrollToTop()
+  useScrollToTop();
+
   const [activeTab, setActiveTab] = useState<number>(0);
+
+  const students: Students[] = [
+    {
+      id: 7,
+      label: "Class-7 (30)",
+      content: <StudentsList className={"07"} />,
+    },
+    {
+      id: 8,
+      label: "Class-8 (40)",
+      content: <StudentsList className="08" />,
+    },
+    {
+      id: 9,
+      label: "Class-9 (35)",
+      content: <StudentsList className="09" />,
+    },
+    {
+      id: 10,
+      label: "Class-10 (45)",
+      content: <StudentsList className="10" />,
+    },
+  ];
 
   return (
     <>

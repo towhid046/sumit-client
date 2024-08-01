@@ -14,3 +14,12 @@ export interface Inputs {
   imgObject: object;
   password: string;
 }
+
+export interface StudentObject {
+  name: string;
+  image: string;
+  studentId: string;
+  studentClass: string;
+  phone: string;
+  institution: string;
+}
