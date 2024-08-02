@@ -3,7 +3,7 @@ import React from "react";
 import Button from "./../../../components/shared/Button/Button";
 const Hero: React.FC = () => {
   return (
-    <section className="flex flex-col md:flex-row max-w-5xl mx-auto px-4 items-center gap-5 py-8 ">
+    <section  className="flex flex-col md:flex-row max-w-5xl mx-auto px-4 items-center gap-5 py-8 ">
       <div className="flex-1 md:text-left text-center">
         <div className="max-w-xl">
           <h2 className="lg:text-4xl text-3xl font-bold">
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             This is a dummy text repeated and replace this text with some
             meaning full text{" "}
           </p>
-          <Button>Contact</Button>
+          <a href="#contact"><Button>Contact</Button></a>
         </div>
       </div>
       <div className="flex-1">

@@ -19,7 +19,7 @@ const navLinks = [
   { path: "/students", label: "Students", icon: FaUserGraduate },
   { path: "/teachers", label: "Teachers", icon: FaChalkboardTeacher },
   { path: "/about-us", label: "About Us", icon: FaInfoCircle },
-  { path: "/contact", label: "Contact", icon: FaEnvelope },
+  // { path: "/contact", label: "Contact", icon: FaEnvelope },
 ];
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

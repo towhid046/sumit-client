@@ -29,10 +29,10 @@ const routes = createBrowserRouter([
         path: "/about-us",
         element: <AboutPage />,
       },
-      {
-        path: "/contact",
-        element: <ContactPage />,
-      },
+      // {
+      //   path: "/contact",
+      //   element: <ContactPage />,
+      // },
       {
         path: "/login",
         element: <LoginPage />,
