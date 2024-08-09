@@ -4,7 +4,7 @@ interface queryProps {
   queryKeyName: string;
   url: string;
 }
-const useToGetPublicData = ({ queryKeyName, url }) => {
+const useToGetPublicData = ({ queryKeyName, url }: queryProps) => {
   const axiosPublic = useAxiosPublic();
   const { data, refetch, isError, error, isLoading } = useQuery({
     queryKey: [queryKeyName],

@@ -1,5 +1,7 @@
+import LoadingSpinner from "../../../components/shared/LoadingSpinner/LoadingSpinner";
 import useToGetPublicData from "../../../hooks/useToGetPublicData";
 import StudentCard from "../StudentCard/StudentCard";
+import ErrorComponent from "./../../../components/shared/ErrorComponent/ErrorComponent";
 
 interface StudentListProps {
   className: string;
@@ -17,19 +19,11 @@ const StudentsList = ({ className }: StudentListProps) => {
   });
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center h-[50vh] items-center">
-        <span className="loading loading-spinner loading-lg "></span>
-      </div>
-    );
+    return <LoadingSpinner height="50vh" size="md" />;
   }
 
   if (isError) {
-    return (
-      <div className="flex justify-center py-12">
-        <span className="text-xl font-semibold italic">{error}</span>
-      </div>
-    );
+    return <ErrorComponent error={error} />;
   }
   return (
     <section className="container mx-auto px-4">

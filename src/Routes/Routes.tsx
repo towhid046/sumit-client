@@ -4,9 +4,10 @@ import Root from "./../Root/Root";
 import StudentsPage from "./../pages/StudentsPage/StudentsPage";
 import TeacherPage from "./../pages/TeacherPage/TeacherPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
-import ContactPage from "../pages/ContactPage/ContactPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
+import Dashboard from "./../pages/Dashboard/Dashboard";
+import Students from "../pages/Dashboard/Students/Students";
 
 const routes = createBrowserRouter([
   {
@@ -40,6 +41,16 @@ const routes = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPage />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard/students",
+        element: <Students />,
       },
     ],
   },
